@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html class="h-screen">
+
+<head>
+  <title>Air Terjun Talalang Jaya - Mockup</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
+  <%= tinymce_assets %>
+  <%= hotwire_livereload_tags if Rails.env.development? %>
+</head>
+
+<body class="font-sans flex flex-col justify-between h-full">
+  <%= render 'partials/header' %>
+  <%= yield %>
+  <%= render 'partials/footer' %>
+</body>
+
+</html>

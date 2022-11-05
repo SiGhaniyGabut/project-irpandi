@@ -1,0 +1,43 @@
+<main class="p-5 bg-slate-100">
+    <section class="mx-auto max-w-screen-xl text-justify pb-5">
+        <div class="title text-center" id="profile">
+            <h1 class="text-2xl font-bold">Selamat Datang <%= current_user.username %></h1>
+            <p class="">Berikut hal yang dapat Anda tinjau hari ini:</p>
+        </div>
+    </section>
+
+    <section class="mx-auto max-w-screen-xl pb-5">
+        <div class="section-divider w-full bg-slate-100 pb-5">
+            <%= image_tag(asset_path('section-divider'), class: 'mx-auto h-16 md:h-20') %>
+        </div>
+        <div class="title text-center mb-7" id="profile">
+            <h2 class="text-xl font-bold">Penjualan Tiket Harian</h2>
+            <p class="text-sm">(Mulai dari jam 00.00 WIB hingga 23.59 WIB)</p>
+        </div>
+        <div class="text-center text-3xl font-bold text-orange-500"><p>0 Penjualan</p></div>
+    </section>
+    <section class="mx-auto max-w-screen-xl pb-5">
+        <div class="section-divider w-full bg-slate-100 pb-5">
+            <%= image_tag(asset_path('section-divider'), class: 'mx-auto h-16 md:h-20') %>
+        </div>
+        <div class="title text-center mb-7" id="profile">
+            <h2 class="text-xl font-bold">Informasi Terbaru</h2>
+            <p class="text-sm">(3 postingan terakhir)</p>
+        </div>
+        <div class="flex gap-5 flex-wrap justify-center">
+            <%= render partial: 'partials/post_cards', collection: @posts, as: :post %>
+        </div>
+    </section>
+    <section class="mx-auto max-w-screen-xl pb-5">
+        <div class="section-divider w-full bg-slate-100 pb-5">
+            <%= image_tag(asset_path('section-divider'), class: 'mx-auto h-16 md:h-20') %>
+        </div>
+        <div class="title text-center mb-7" id="profile">
+            <h2 class="text-xl font-bold">Tipe Tiket Dijual</h2>
+            <p class="text-sm">(3 tipe tiket ditampilkan)</p>
+        </div>
+        <div class="flex gap-5 flex-wrap justify-center">
+            <%= render partial: 'partials/ticket_cards', collection: @tickets, as: :ticket %>
+        </div>
+    </section>
+</main>

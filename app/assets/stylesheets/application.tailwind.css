@@ -1,0 +1,19 @@
+/* import Swiper and modules styles */
+@import 'https://ga.jspm.io/npm:swiper@8.4.4/swiper.min.css';
+@import 'https://ga.jspm.io/npm:swiper@8.4.4/modules/navigation/navigation.min.css';
+@import 'https://ga.jspm.io/npm:swiper@8.4.4/modules/pagination/pagination.min.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+
+@layer components {
+  .btn-primary {
+    @apply py-2 px-4 bg-blue-200;
+  }
+}
+
+*/
+@import 'actiontext.css';

@@ -1,0 +1,21 @@
+<main class="p-5">
+    <section class="mx-auto max-w-screen-xl text-justify pb-5">
+        <div class="title text-2xl font-bold mb-5 flex justify-between" id="profile">
+            <h1><%= @ticket.name %></h1>
+            <%= button_to 'Kembali', admin_tickets_path, class: "text-sm font-semibold text-white py-2 px-3 bg-orange-400 hover:bg-orange-300", method: :get%>
+        </div>
+        
+        <div class="image-wrapper max-w-sm flex flex-col">
+            <div class="flex flex-col gap-2 my-5">
+                <%= image_tag((@ticket.image.attached? ? @ticket.image : ""), alt: @ticket.name, class: "w-full h-auto shadow-md") %>
+                <p class="text-lg font-bold text-orange-500">Harga: <%= rupiah(@ticket.price) %></p>
+                <p>Deskripsi: <%= @ticket.description %></p>
+            </div>
+
+            <div class="action flex gap-3 justify-center">
+                <%= button_to 'Hapus', admin_ticket_path(@ticket), class: "w-32 text-sm font-semibold text-white py-2 px-3 bg-red-400 hover:bg-red-300", method: :delete, data: { confirm: "Apakah anda yakin ingin menghapus tiket ini?" } %>
+                <%= button_to 'Edit', edit_admin_ticket_path(@ticket), class: "w-32 text-sm font-semibold text-white py-2 px-3 bg-green-400 hover:bg-green-300", method: :get%>
+            </div>
+        </div>
+    </section>
+</main>

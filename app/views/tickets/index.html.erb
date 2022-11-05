@@ -1,0 +1,10 @@
+<main class="p-5">
+    <div class="title text-center text-2xl font-bold mb-3" id="profile"><h1>Daftar Tiket</h1></div>
+    <div class="section-divider w-full pb-5">
+        <%= image_tag(asset_path('section-divider'), class: 'mx-auto h-14') %>
+    </div>
+
+    <div class="flex gap-5 flex-wrap justify-center">
+        <%= render partial: 'partials/ticket_cards', collection: @tickets, as: :ticket %>
+    </div>
+</main>

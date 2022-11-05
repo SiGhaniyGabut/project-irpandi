@@ -1,0 +1,29 @@
+<main class="p-5">
+    <section class="text-justify pb-5">
+        <div class="title text-2xl font-bold mb-5 flex justify-between" id="profile">
+            <h1>Edit Informasi</h1>
+            <%= button_to 'Kembali', admin_posts_path, class: "text-sm font-semibold text-white py-2 px-3 bg-orange-400 hover:bg-orange-300", method: :get%>
+        </div>
+
+        <%= form_with(model: @post, url: admin_post_path(@post.id), class: "wrapper flex flex-wrap justify-between gap-5") do |f| %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+            <div class="w-full md:max-w-2xl">
+                <div class="field">
+                    <%= f.rich_text_area :content, class: "max-h-full" %>
+                </div>
+            </div>
+
+            <div class="w-full max-w-sm flex flex-col gap-3">
+                <div class="flex flex-col gap-3">
+                    <%= f.label :image, 'Gambar Utama' %>
+                    <%= f.file_field :image %>
+                </div>
+                <div class="flex flex-col gap-3">
+                    <%= f.label :title, 'Judul Pemberitahuan' %>
+                    <%= f.text_field :title %>
+                </div>
+                <div><%= f.submit 'Simpan Post', class: 'w-full font-semibold text-white py-2 bg-orange-400 hover:bg-orange-300 hover:cursor-pointer' %></div>
+            </div>
+        <% end %>
+    </section>
+</main>

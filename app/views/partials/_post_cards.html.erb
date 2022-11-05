@@ -1,0 +1,9 @@
+<div class="card bg-white shadow-md w-64">
+    <div class="card-image">
+        <%= image_tag((post.image.attached? ? post.image : ''), alt: post.title) %>
+    </div>
+    <div class="content p-5">
+        <h1 class="font-semibold text-lg mb-3 hover:text-orange-500"><%= link_to(post.title, (admin_namespace? ? admin_post_path(post.id) : post_path(post.id))) %></h1>
+        <p class="font-inter"><%= post.content.to_plain_text.truncate_words(10) %></p>
+    </div>
+</div>

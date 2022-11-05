@@ -1,0 +1,13 @@
+default: &default
+  plugins:
+    - image
+    - link
+    - media
+
+alternate:
+  <<: *default
+  toolbar: undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help
+  plugins:
+    - advlist autolink lists charmap print preview anchor
+    - searchreplace visualblocks code fullscreen
+    - insertdatetime table paste code help wordcount

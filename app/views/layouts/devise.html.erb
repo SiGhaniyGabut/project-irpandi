@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Air Terjun Talalang Jaya - Mockup</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
+  <%= hotwire_livereload_tags if Rails.env.development? %>
+</head>
+
+<body class="font-sans relative">
+  <% if flash.any? %>
+    <% flash_color = { error: "bg-red-100 text-red-600", notice: "bg-green-100 text-green-600" } %>
+    <% flash.each do |msg, type| %>
+      <div class="flash-notification absolute border p-3 w-full max-w-xs rounded-md top-5 right-5 z-30 hover:cursor-pointer <%= flash_color[type.to_sym] %>">
+        <p><%= msg %></p>
+      </div>
+    <% end %>
+  <% end %>
+  <div class="background">
+    <div class="backdrop-blur-sm backdrop-brightness-50 h-screen w-full absolute"></div>
+    <video class="object-cover h-screen w-screen" autoplay muted loop>
+      <%= tag.source src: asset_path('hero-video'), type: 'video/mp4' %>
+    </video>
+  </div>
+  <div class="wrapper absolute top-0 p-5 text-white w-full h-full max-w-2xl left-1/2 -translate-x-1/2 backdrop-blur-lg flex flex-col">
+    <%= yield %>
+  </div>
+</body>
+
+</html>

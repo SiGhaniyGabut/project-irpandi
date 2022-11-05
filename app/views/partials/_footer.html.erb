@@ -1,0 +1,28 @@
+<footer class="py-10 px-5 bg-gray-300">
+    <div class="mx-auto max-w-screen-xl flex flex-col sm:flex-row gap-10 sm:gap-5">
+        <div class="max-w-md flex flex-col flex-1 gap-3">
+            <h3 class="text-lg font-medium">Yuk Mampir</h3>
+            <address class="text-sm">
+                <p>Alamat: Jl. Raya Talentam, Desa Talentam, Kec. Tabir Barat, Kab. Merangin, Jambi</p>
+                <p>Telepon: 0812-3456-7890</p>
+                <p>Email: <a href="mailto:#">email@email.com</a>
+            </address>
+        </div>
+        <div class="sitemap flex-1 flex flex-col gap-3">
+            <h3 class="text-lg font-medium">Informasi Lainnya</h3>
+            <div class="text-sm">
+                <ul class="flex gap-3">
+                    <li><a href="#">Tentang Kami</a></li>
+                    <li><a href="#">Kontak Kami</a></li>
+                    <li><a href="#">Peta Situs</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="sitemap flex flex-1 flex-col gap-3">
+            <div class="mx-auto">
+                <%= link_to(image_tag(asset_path('logo.png'), class: 'h-10', alt: 'LOGO TALALANG JAYA'), root_path) %>
+            </div>
+            <p class="text-center text-xs font-semibold">Copyright &copy; <%= DateTime.now.year %> Air Terjun Talalang Jaya Tujuh Bidadari. <br>All right reserved.</p>
+        </div>
+    </div>
+</footer>

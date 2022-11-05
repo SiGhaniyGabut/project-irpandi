@@ -1,0 +1,20 @@
+<main class="p-5">
+    <section class="mx-auto max-w-screen-xl text-justify pb-5">
+        <div class="title text-2xl font-bold mb-5 flex justify-between" id="profile">
+            <h1><%= @ticket.name %></h1>
+            <%= button_to 'Kembali', tickets_path, class: "text-sm font-semibold text-white py-2 px-3 bg-orange-400 hover:bg-orange-300", method: :get%>
+        </div>
+        
+        <div class="image-wrapper max-w-sm flex flex-col">
+            <div class="flex flex-col gap-2 my-5">
+                <%= image_tag((@ticket.image.attached? ? @ticket.image : ""), alt: @ticket.name, class: "w-full h-auto shadow-md") %>
+                <p class="text-lg font-bold text-orange-500">Harga: <%= rupiah(@ticket.price) %></p>
+                <p>Deskripsi: <%= @ticket.description %></p>
+            </div>
+
+            <div class="action">
+                <%= link_to 'Pesan Sekarang', order_ticket_url(name: @ticket.name, price: rupiah(@ticket.price)), class: "w-full text-sm text-center font-semibold text-white py-2 px-3 bg-orange-400 hover:bg-orange-300 block", method: :get %>
+            </div>
+        </div>
+    </section>
+</main>

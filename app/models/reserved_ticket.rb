@@ -1,0 +1,2 @@
+class ReservedTicket < ApplicationRecord
+end

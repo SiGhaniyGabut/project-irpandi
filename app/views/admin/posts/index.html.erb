@@ -1,0 +1,12 @@
+<main class="p-5">
+    <section class="mx-auto max-w-screen-xl text-justify pb-5">
+        <div class="title text-2xl font-bold mb-10 flex justify-between" id="profile">
+            <h1>Informasi Terbaru</h1>
+            <%= button_to 'Buat Informasi Baru', new_admin_post_path, class: "text-sm font-semibold text-white py-2 px-3 bg-orange-400 hover:bg-orange-300", method: :get%>
+        </div>
+
+        <div class="flex gap-5 flex-wrap justify-center">
+            <%= render partial: 'partials/post_cards', collection: @posts, as: :post %>
+        </div>
+    </section>
+</main>

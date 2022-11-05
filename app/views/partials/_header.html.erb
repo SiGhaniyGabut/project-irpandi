@@ -1,0 +1,49 @@
+<header class="px-5 py-3 bg-white text-sm">
+    <div class="container mx-auto max-w-screen-xl flex justify-between relative" <%= 'data-controller=dropdown' if admin_namespace? %>>
+        <div class="logo w-32 my-auto">
+            <%= link_to(image_tag(asset_path('logo.png'), alt: 'LOGO TALALANG JAYA'), root_path) %>
+        </div>
+
+        <nav class="my-auto">
+        <ul class="flex gap-3">
+            <% if admin_namespace? %>
+                <li class="my-auto"><%= link_to 'Dashboard', admin_dashboard_index_path, class: 'hover:text-orange-400' %></li>
+                <button type="button" class="my-auto hover:cursor-pointer" data-action="dropdown#toggle click@window->dropdown#hide"><%= image_tag(avatar_from_name(current_user.username), alt: current_user.username, class: "w-8 h-auto rounded-full") %></button>
+            <% else %>
+                <li class="my-auto"><%= link_to 'Informasi', posts_path, class: 'hover:text-orange-400' %></li>
+                <li class="my-auto"><%= link_to 'Pesan Tiket', tickets_path, class: 'hover:text-orange-400' %></li>
+                <%# if user_signed_in? %>
+                    <!-- <li class="my-auto"><%#= link_to 'Pesan Tiket', new_reservation_path, class: 'hover:text-orange-400' %></li> -->
+                    <!-- <li class="my-auto"><%#= button_to "#{current_user.username} (keluar)", destroy_user_session_path, class: 'underline hover:text-orange-400', method: :delete %></li> -->
+                <%# else %>
+                    <!-- <li class="my-auto"><%#= link_to 'Masuk', new_user_session_path, class: 'underline hover:text-orange-400' %></li> -->
+                <%# end %>
+            <% end %>
+        </ul>
+        </nav>
+        <% if admin_namespace? %>
+            <div
+                data-dropdown-target="menu"
+                data-transition-enter-from="opacity-0 scale-95"
+                data-transition-enter-to="opacity-100 scale-100"
+                data-transition-leave-from="opacity-100 scale-100"
+                data-transition-leave-to="opacity-0 scale-95"
+                class="profile-controllerc w-72 h-auto top-14 right-0 absolute z-40 bg-white shadow-md hidden transition transform origin-top-right">
+                <div class="flex justify-between px-5 py-3">
+                    <div class="flex gap-3">
+                        <div class="my-auto font-inter">
+                            <p class="font-bold text-lg"><%= current_user.username %></p>
+                            <p><%= current_user.email %></p>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <ul>
+                    <li class="px-4 py-2 hover:bg-gray-100 hover:cursor-pointer hover:text-orange-500"><%= link_to 'Informasi Terbaru', admin_posts_path, class: "w-full h-full block" %></li>
+                    <li class="px-4 py-2 hover:bg-gray-100 hover:cursor-pointer hover:text-orange-500"><%= link_to 'Daftar Tiket', admin_tickets_path, class: "w-full h-full block" %></li>
+                    <%= button_to 'Keluar', destroy_user_session_path, class: "px-4 py-2 hover:bg-gray-100 bg-gray-200 hover:cursor-pointer hover:text-black font-semibold w-full", method: :delete %>
+                </ul>
+            </div>
+        <% end %>
+    </div>
+</header>
