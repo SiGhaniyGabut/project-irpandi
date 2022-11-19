@@ -1,0 +1,29 @@
+<main class="p-5">
+    <section class="mx-auto max-w-screen-xl text-justify pb-5">
+        <div class="title text-2xl font-bold mb-10 flex justify-between" id="profile">
+            <h1>Galeri</h1>
+            <%= button_to 'Galeri Baru', new_admin_gallery_path, class: "text-sm font-semibold text-white py-2 px-3 bg-orange-400 hover:bg-orange-300", method: :get%>
+        </div>
+
+        <div class="flex gap-5 flex-wrap justify-center">
+            <%#= render partial: 'partials/ticket_cards', collection: @tickets, as: :ticket %>
+            <% @galleries.each do |gallery| %>
+                <div class="flex flex-col gap-2">
+                  <div class="title flex justify-between">
+                    <p class="text-lg"><%= gallery.title %></p>
+                    <%= button_to 'Hapus Galeri', admin_gallery_path(gallery.id), method: :delete, class: "underline hover:text-orange-500" %>
+                  </div>
+                  <div class="grid grid-cols-3 gap-3">
+                    <% gallery.entities.each do |entity| %>
+                      <% if entity.content_type.include?("image") %>
+                        <img src="<%= url_for(entity) %>" alt=<%= gallery.title %> class="w-72 h-auto">
+                      <% elsif entity.content_type.include?("video") %>
+                        <video src="<%= url_for(entity) %>" alt=<%= gallery.title %> class="w-72 h-auto" controls></video>
+                      <% end %>
+                    <% end %>
+                  </div>
+                </div>
+            <% end %>
+        </div>
+    </section>
+</main>

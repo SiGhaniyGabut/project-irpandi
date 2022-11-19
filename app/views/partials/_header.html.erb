@@ -12,6 +12,7 @@
             <% else %>
                 <li class="my-auto"><%= link_to 'Informasi', posts_path, class: 'hover:text-orange-400' %></li>
                 <li class="my-auto"><%= link_to 'Pesan Tiket', tickets_path, class: 'hover:text-orange-400' %></li>
+                <li class="my-auto"><%= link_to 'Galeri', galleries_path, class: 'hover:text-orange-400' %></li>
                 <%# if user_signed_in? %>
                     <!-- <li class="my-auto"><%#= link_to 'Pesan Tiket', new_reservation_path, class: 'hover:text-orange-400' %></li> -->
                     <!-- <li class="my-auto"><%#= button_to "#{current_user.username} (keluar)", destroy_user_session_path, class: 'underline hover:text-orange-400', method: :delete %></li> -->
@@ -41,6 +42,7 @@
                 <ul>
                     <li class="px-4 py-2 hover:bg-gray-100 hover:cursor-pointer hover:text-orange-500"><%= link_to 'Informasi Terbaru', admin_posts_path, class: "w-full h-full block" %></li>
                     <li class="px-4 py-2 hover:bg-gray-100 hover:cursor-pointer hover:text-orange-500"><%= link_to 'Daftar Tiket', admin_tickets_path, class: "w-full h-full block" %></li>
+                    <li class="px-4 py-2 hover:bg-gray-100 hover:cursor-pointer hover:text-orange-500"><%= link_to 'Galeri', admin_galleries_path, class: "w-full h-full block" %></li>
                     <%= button_to 'Keluar', destroy_user_session_path, class: "px-4 py-2 hover:bg-gray-100 bg-gray-200 hover:cursor-pointer hover:text-black font-semibold w-full", method: :delete %>
                 </ul>
             </div>

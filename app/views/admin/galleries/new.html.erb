@@ -1,0 +1,23 @@
+<main class="p-5">
+    <section class="mx-auto max-w-screen-xl text-justify pb-5">
+        <div class="title text-2xl font-bold mb-5 flex justify-between" id="profile">
+            <h1>Buat Galeri Baru</h1>
+            <%= button_to 'Kembali', admin_galleries_path, class: "text-sm font-semibold text-white py-2 px-3 bg-orange-400 hover:bg-orange-300", method: :get%>
+        </div>
+
+        <div class="form max-w-lg">
+            <%= form_with(model: @gallery, url: admin_galleries_path, class: "flex flex-col gap-3") do |f| %>
+                <%= f.hidden_field :user_id, value: current_user.id %>
+                <div class="flex flex-col gap-2">
+                    <%= f.label :entities, 'Masukkan hanya Photo atau Video' %>
+                    <%= f.file_field :entities, multiple: true, hint: 'Hanya: .mp4, .webp, .png, .jpg' %>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <%= f.label :title, 'Nama Galleri' %>
+                    <%= f.text_field :title, placeholder: "Contoh: Photo Kunjungan Presiden Buaran", value: "" %>
+                </div>
+                <div><%= f.submit "Simpan", class: "py-2 font-semibold text-white text-center bg-orange-400 hover:cursor-pointer hover:bg-orange-300 w-full" %></div>
+            <% end %>
+        </div>
+    </section>
+</main>

@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :tickets
   has_many :posts
+  has_many :galleries
 
   def admin?
     role == 'admin'
