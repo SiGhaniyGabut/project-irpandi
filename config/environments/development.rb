@@ -71,5 +71,5 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   # LiveReload Hotwired
-  config.hotwire_livereload.listen_paths << Rails.root.join('app/controllers')
+  # config.hotwire_livereload.listen_paths << Rails.root.join('app/controllers')
 end

@@ -1,3 +1,3 @@
 sudo service postgresql start
-sudo service redis-server start
+# sudo service redis-server start
 bin/dev
