@@ -15,10 +15,10 @@
 
 <body class="font-sans relative">
   <% if flash.any? %>
-    <% flash_color = { error: "bg-red-100 text-red-600", notice: "bg-green-100 text-green-600" } %>
-    <% flash.each do |msg, type| %>
+    <% flash_color = { alert: "bg-red-100 text-red-600", notice: "bg-green-100 text-green-600" } %>
+    <% flash.each do |type, msg| %>
       <div class="flash-notification absolute border p-3 w-full max-w-xs rounded-md top-5 right-5 z-30 hover:cursor-pointer <%= flash_color[type.to_sym] %>">
-        <p><%= msg %></p>
+        <p><%= msg.capitalize! %></p>
       </div>
     <% end %>
   <% end %>

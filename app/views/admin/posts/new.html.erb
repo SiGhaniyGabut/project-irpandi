@@ -13,16 +13,16 @@
                 </div>
             </div>
 
-            <div class="w-full max-w-sm flex flex-col gap-3">
+            <div class="w-full max-w-sm flex flex-col gap-3" data-controller="posts">
                 <div class="flex flex-col gap-3">
                     <%= f.label :image, 'Gambar Utama' %>
                     <%= f.file_field :image %>
                 </div>
                 <div class="flex flex-col gap-3">
-                    <%= f.label :title, 'Judul Pemberitahuan' %>
-                    <%= f.text_field :title %>
+                    <%= f.label :title, 'Judul Informasi' %>
+                    <%= f.text_field :title, "data-posts-target": "title" %>
                 </div>
-                <div><%= f.submit 'Simpan Post', class: 'w-full font-semibold text-white py-2 bg-orange-400 hover:bg-orange-300 hover:cursor-pointer' %></div>
+                <div><%= f.submit 'Simpan dan Publikasi', class: 'w-full font-semibold text-white py-2', "data-posts-target": "postButton" %></div>
             </div>
         <% end %>
     </section>
